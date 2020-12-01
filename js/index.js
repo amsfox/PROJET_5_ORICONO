@@ -33,12 +33,6 @@ ajaxGet("http://localhost:3000/api/teddies", function(reponse) { // fonction aja
         button.classList.add("btn", "btn-primary");
         buttonDiv.appendChild(button);
         article.appendChild(buttonDiv);
-        
-        // ------------------------------------------------------------------------------------------
-
-        let separateur = document.createElement("hr");
-        article.appendChild(separateur);
-
         //console.log(teddie._id)
 
     }       
