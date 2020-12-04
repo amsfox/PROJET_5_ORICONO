@@ -1,4 +1,4 @@
-//const { json } = require("body-parser");
+// Variables utilisées pour le panier
 
 let panierContent = document.getElementById("panierContent");
 let totalPanier = [];
@@ -47,6 +47,7 @@ for (let i = 0; i < panier.length; i++) {
        
 }
 
+// fonction pour additionner les montants des differents produits du panier
 function sommeTotalPanier(a){
     var total=0;
     for(var i in a) { 
@@ -68,34 +69,55 @@ viderPanier.addEventListener("click", function(e) {
     localStorage.clear();
 });
 
-//Partie formulaire
 
+//Partie formulaire
+// Déclaration des variables
 let nomClient = document.getElementById("nomClient")
 let prenomClient = document.getElementById("prenomClient")
+let adresseClient = document.getElementById("adresseClient")
+let villeClient = document.getElementById("villeClient")
 let mailClient = document.getElementById("mailClient")
-//console.log(nomClient.value)
+console.log(nomClient.value)
 
 //evenlisterner soumission formulaire
 let soumettre = document.getElementById("soumettre")
 soumettre.addEventListener("click", function(e) {
     //e.preventDefault()
     //console.log("clic soumettre")
-    let infosCommande = {
-        nomClient : nomClient.value,
-        prenomClient : prenomClient.value,
-        mailClient : mailClient.value,
-        sommeTotale : sommeTotale,
-        identifiant : nomClient.value + Date.now(),
-        panier
+    let contact = { // création d'un objet contact
+        firstName : nomClient.value,
+        lastName : prenomClient.value,
+        address : adresseClient.value,
+        city : villeClient.value,
+        email : mailClient.value,
     }
 
+    let products = []; // Création d'un tableau Products dans lequel seront rajoutés les Id des produits du panier
+    for (let i = 0; i < panier.length; i++) {
+        products.push(panier[i].id)
+    }
+
+    // Création de la variable infoscommande qui sera envoyée au serveur avec la requête POST
+    let infosCommande = {
+        contact,
+        products
+    }
     console.log(infosCommande)
 
-    localStorage.setItem("infosCommande",JSON.stringify(infosCommande)) // données à placer dans le localstorage pour recuperer dans la page confirmation
+    // Création de la variable confirmation qui sera stockée dans le local storage pour récupérer les info à aficher sur la page confirmation
+    let confirmation = {
+        lastName : prenomClient.value,
+        sommeTotale : sommeTotale,
+        identifiant : nomClient.value + Date.now(), // créer un id unique qui est la combinaison du nom + date sous forme Timestamp
+    }
 
-    //requête http POST
+    localStorage.setItem("confirmation",JSON.stringify(confirmation)) // données à placer dans le localstorage pour recuperer dans la page confirmation
+
+    //requête http POST pour envoyer les données infoscommande au serveur
     ajaxPost("http://localhost:3000/api/teddies/order", infosCommande)
 
     // vider l'item panier du local storage une fois le formulaire validé
     localStorage.removeItem("panier");
 })
+
+

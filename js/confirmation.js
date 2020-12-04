@@ -1,20 +1,20 @@
 let validationCommande = document.getElementById("validationCommande")
 
-let infosCommande = JSON.parse(localStorage.getItem("infosCommande"))
-console.log(infosCommande)
+let confirmation = JSON.parse(localStorage.getItem("confirmation"))
+console.log(confirmation)
 
 // message personnalisé
 let message = document.createElement("p")
-message.textContent = "Nous vous remercions pour votre commande " + infosCommande.prenomClient // rajouter innerhtml pour mettre le nom en gras !!!
+message.textContent = "Nous vous remercions pour votre commande " + confirmation.lastName // rajouter innerhtml pour mettre le nom en gras !!!
 validationCommande.appendChild(message)
 
 
 //identifiant commande
 let commande = document.getElementById("commande")
 let identifiantCommande = document.createElement("p")
-identifiantCommande.textContent = "Identifiant : " + infosCommande.identifiant
+identifiantCommande.textContent = "Identifiant : " + confirmation.identifiant
 commande.appendChild(identifiantCommande)
 
 let prix = document.createElement("p")
-prix.textContent = "prix : " + infosCommande.sommeTotale + " EUR"
+prix.textContent = "prix : " + confirmation.sommeTotale + " EUR"
 commande.appendChild(prix)
