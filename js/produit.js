@@ -66,7 +66,7 @@ ajaxGet("http://localhost:3000/api/teddies/" + id, function(reponse) { //fonctio
     // bouton validation
     let ajouterAuPanier = document.getElementById("ajouterAuPanier");
     let buttonpanier = document.createElement("a");
-    buttonpanier.href = "../html/panier.html";
+    buttonpanier.href = "../panier.html";
     buttonpanier.textContent = "Ajouter au panier";
     buttonpanier.classList.add("btn", "btn-primary");
     ajouterAuPanier.appendChild(buttonpanier);
