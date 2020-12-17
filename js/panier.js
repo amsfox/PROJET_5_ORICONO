@@ -3,10 +3,9 @@
 let panierContent = document.getElementById("panierContent");
 let totalPanier = [];
 let panier = JSON.parse(localStorage.getItem("panier"));
-let sommeTotale = 0;
 //console.log(panier != null)
 
-// boucle for (accéder aux données du local storage panier pour construire le panier avec les articles selectionnées)
+// boucle for
 
 if (panier != null) {
 
@@ -46,13 +45,16 @@ if (panier != null) {
         
         // totalPanier
         totalPanier.push(parseFloat(total.textContent))
+        console.log(totalPanier)
         
         //***** sum array totalPanier */
-        
-        sommeTotale += panier[i].prix;
-        console.log(panier[i].prix)
-
-                   
+        var sommeTotale = 0;
+        totalPanier.forEach(myFunction);
+        function myFunction(item) {
+            sommeTotale += item;
+            console.log(sommeTotale)
+        }
+           
     }
     
     
@@ -75,6 +77,7 @@ if (panier != null) {
     let mailClient = document.getElementById("mailClient")
 
     // Gestion regex sur adresse mail
+
     mailClient.addEventListener("blur", function(e) {
         // correspond à une chaine de form xxx@yyy.zzz
         var regexCourriel = /.+@.+\..+/
@@ -85,6 +88,7 @@ if (panier != null) {
         }
         aideMail.textContent = validiteCourriel
     })
+
     
     //evenlisterner soumission formulaire
     //let soumettre = document.getElementById("soumettre")
