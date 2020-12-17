@@ -20,13 +20,8 @@ function ajaxGet (url, callback) {
 
 }
 
-function afficher(reponse) {
-    console.log(reponse);
-}
-
 
 // Fonction POST
-
 
 function ajaxPost(url, data) {
     var request = new XMLHttpRequest();
@@ -35,6 +30,8 @@ function ajaxPost(url, data) {
       if(this.readyState == XMLHttpRequest.DONE && this.status == 200) {
         var response = JSON.parse(this.responseText);
         document.getElementById('result').innerHTML = "<p>"+response.postData.text+"</p>";
+      } else {
+          console.error("Erreur envoi formulaire, Champs obligatoires non renseignés !")
       }
     }
   

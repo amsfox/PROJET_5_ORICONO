@@ -66,7 +66,7 @@ ajaxGet("http://localhost:3000/api/teddies/" + id, function(reponse) { //fonctio
     // bouton validation
     let ajouterAuPanier = document.getElementById("ajouterAuPanier");
     let buttonpanier = document.createElement("a");
-    buttonpanier.href = "../panier.html";
+    buttonpanier.href = "../html/panier.html";
     buttonpanier.textContent = "Ajouter au panier";
     buttonpanier.classList.add("btn", "btn-primary");
     ajouterAuPanier.appendChild(buttonpanier);
@@ -100,11 +100,8 @@ ajaxGet("http://localhost:3000/api/teddies/" + id, function(reponse) { //fonctio
                 }
             }
             if(!found) {
-                console.log("push");
-                // localPanier[localPanier.length] = product; //****.
-                // console.log(localPanier);
-                localPanier.push(product); //*** */
-                localStorage.setItem("panier", JSON.stringify(localPanier)); // transform l'objet au format json et le stocke dans localstorage
+                localPanier.push(product);
+                localStorage.setItem("panier", JSON.stringify(localPanier)); // transforme l'objet au format json et le stocke dans localstorage
             }
             
         }

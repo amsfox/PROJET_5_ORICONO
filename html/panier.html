@@ -88,46 +88,43 @@
                     <a class="btn btn-primary" href="index.html">Continuer vos achats</a>
                 </div> <hr>
                 <div>
-                    <a id="viderPanier" class="btn btn-primary" href="panier.html">Vider votre panier</a>
+                    <a id="viderPanier" class="btn btn-primary" href="../html/panier.html">Vider votre panier</a>
                 </div>
             </div>
         </div>
 
         <!-- Formulaire -->
 
-        <div class="row text-center">
+        <div id="formulaire" class="row text-center">
             <div class="col">
                 <p>Merci de remplir le formulaire ci-dessous pour valider votre commande</p>
-                <form action="confirmation.html"> <!--<form action="../html/confirmation.html">-->
+                <p>(Champs obligatoires)</p>
+                <form action="../html/confirmation.html">
                     <div class="form-group">
                         <label for="firstname">Nom</label>
-                        <input id="nomClient" type="text" class="form-control" required>
+                        <input id="nomClient" type="text" class="form-control" required maxlength="50">
                     </div>
                     <div class="form-group">
                         <label for="lastname" >Prénom</label>
-                        <input id="prenomClient" type="text" class="form-control" required>
+                        <input id="prenomClient" type="text" class="form-control" required maxlength="50" >
                     </div>
                     <div class="form-group">
                         <label for="address" >Adresse</label>
-                        <input id="adresseClient" type="text" class="form-control" required>
+                        <input id="adresseClient" type="text" class="form-control" required maxlength="50">
                     </div>
                     <div class="form-group">
                         <label for="city" >Ville</label>
-                        <input id="villeClient" type="text" class="form-control" required>
+                        <input id="villeClient" type="text" class="form-control" required maxlength="50">
                     </div>
                     <div class="form-group">
                         <label for="mail">Email</label>
-                        <input id="mailClient" type="email" class="form-control" placeholder="Entrez votre adresse mail" required>
+                        <input id="mailClient" type="email" class="form-control" placeholder="Entrez votre adresse mail" required maxlength="50">
+                        <span id="aideMail"></span>
                         <small class="form-text text-muted">Nous ne communiquerons jamais votre adresse Email</small>
                     </div>
-                    <!--<div class="form-check">
-                        <input type="checkbox" class="form-check-input" required>
-                        <label for="check" class="form-check-label">Confirmer les données</label>
-                    </div>-->
+                    
                     <button id="soumettre" type="submit" class="btn btn-primary">Soumettre</button>
-                    
-                    
-                                        
+                                                            
                 </form>
             </div>
         </div>
@@ -151,12 +148,7 @@
                 </div>
             </div>
         </div>
-    </div>
-
-
-
-
-    
+    </div>  
 
 
     <!-- Optional JavaScript-->

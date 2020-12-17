@@ -1,4 +1,5 @@
 
+
 ajaxGet("http://localhost:3000/api/teddies", function(reponse) { // fonction ajax pour la requête http
     let teddies = JSON.parse(reponse); // transformer les données JSON en JS
     let listeArticles = document.getElementById("listeArticles"); // attribuer une variable à ul
@@ -28,16 +29,18 @@ ajaxGet("http://localhost:3000/api/teddies", function(reponse) { // fonction aja
         // bouton "voir ce produit" avec lien vers la fiche du produit
         let buttonDiv = document.createElement("div");
         let button = document.createElement("a");
-        button.href = "../produit.html?id=" + teddie._id;
+        button.href = "../html/produit.html?id=" + teddie._id;
         button.textContent = "Voir ce produit";
         button.classList.add("btn", "btn-primary");
         buttonDiv.appendChild(button);
         article.appendChild(buttonDiv);
         //console.log(teddie._id)
+        //console.log(button.href)
 
     }       
-
 })
+
+
 
 
 
