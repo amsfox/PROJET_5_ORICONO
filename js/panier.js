@@ -75,8 +75,10 @@ if (panier != null) {
     let adresseClient = document.getElementById("adresseClient")
     let villeClient = document.getElementById("villeClient")
     let mailClient = document.getElementById("mailClient")
+    let aideMail = document.getElementById("aideMail")
 
     // Gestion regex sur adresse mail
+    aideMail.style.color = "red"
 
     mailClient.addEventListener("blur", function(e) {
         // correspond à une chaine de form xxx@yyy.zzz
